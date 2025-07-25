@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Видалити завдання</title>
+    <link rel="stylesheet" href="{% static 'todo_app/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>🗑️ Видалення завдання</h1>
+
+        <p>Ти справді хочеш видалити "<strong>{{ task.title }}</strong>"?</p>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Так, видалити</button>
+        </form>
+
+        <a href="{% url 'home' %}">⬅️ Назад</a>
+    </div>
+</body>
+</html>
