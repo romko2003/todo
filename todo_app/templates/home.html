@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>Список завдань</title>
-</head>
-<body>
-    <h1>Мій список завдань</h1>
+{% extends 'base.html' %}
 
+{% block content %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -21,5 +15,4 @@
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
