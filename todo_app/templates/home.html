@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Список завдань</title>
+</head>
+<body>
+    <h1>Мій список завдань</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Додати завдання</button>
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> –
+                {% if task.is_completed %}✅{% else %}❌{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
